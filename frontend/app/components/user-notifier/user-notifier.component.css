@@ -1,0 +1,133 @@
+.progress-container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes waveFill {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 0;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    left: -400px;
+    opacity: 0;
+  }
+  to {
+    left: 20px;
+    opacity: 1;
+  }
+}
+
+.progress-group {
+  background: #1f1f1f;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: fadeSlideIn 0.5s ease forwards;
+  transform-origin: top;
+}
+
+.progress-label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #e0e0e0;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 14px;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #9e8578 0,
+    #9e8578 10px,
+    #80675b 10px,
+    #80675b 20px
+  );
+  background-size: 200% 100%;
+  animation: waveFill 1.5s linear infinite;
+  transition: width 1s ease-in-out;
+  border-radius: 8px;
+}
+
+.progress-bar.done {
+  background: linear-gradient(to right, #a1887f, #6d4c41);
+  animation: none;
+}
+
+.progress-percent {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #bfbfbf;
+  text-align: right;
+}
+
+.floating-message {
+  position: fixed;
+  top: 20px;
+  left: -400px;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 16px 20px 16px 16px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideInFromLeft 0.4s ease forwards;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.floating-message.warning {
+  background: #fff8e1;
+  border-left: 6px solid #f4b400;
+  color: #5c4200;
+}
+
+.floating-message.info {
+  background: #e3f2fd;
+  border-left: 6px solid #2196f3;
+  color: #0d47a1;
+}
+
+.dismiss-button {
+  background: white;
+  color: #333;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.dismiss-button:hover {
+  transform: scale(1.2);
+}

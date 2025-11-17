@@ -1,0 +1,40 @@
+<div class="generated-video-container">
+  <div *ngIf="videoUrl && isVisible" class="video-wrapper">
+    <div class="video-card">
+      <div class="video-container" style="position: relative;">
+        <video
+          #videoElement
+          class="video-player"
+          [src]="videoUrl"
+          autoplay
+          muted
+          loop
+          controls
+        ></video>
+        <div
+          class="play-button-overlay"
+          *ngIf="isPaused"
+          (click)="togglePlay($event)"
+        >
+          <svg viewBox="0 0 100 100" width="64" height="64" style="display:block;">
+            <circle cx="50" cy="50" r="48" fill="none"/>
+            <polygon points="38,30 38,70 72,50" fill="white"/>
+          </svg>
+        </div>
+        <div
+          class="pause-area-overlay"
+          *ngIf="!isPaused"
+          (click)="pauseVideo($event)"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;"
+        ></div>
+      </div>
+      <button class="close-button" (click)="closeVideo()">✕</button>
+    </div>
+  </div>
+  <div *ngIf="!videoUrl && !isVisible">
+    <p>Loading video...</p>
+  </div>
+  <div *ngIf="videoUrl && !isVisible" class="show-video-container">
+    <button class="show-video-button" (click)="showVideo()">▶ Show Latest Video</button>
+  </div>
+</div>

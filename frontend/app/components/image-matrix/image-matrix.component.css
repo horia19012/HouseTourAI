@@ -1,0 +1,165 @@
+.matrix-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(68, 68, 68, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  overflow-x: auto;
+  min-height: 250px;
+  width: 100%;
+}
+
+.matrix {
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: 30px;
+  column-gap: 30px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.row {
+  display: contents;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  min-width: 50px;
+  min-height: 50px;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cell img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: block;
+  z-index: 1;
+}
+
+.cell:hover {
+  transform: scale(1.08);
+  z-index: 5;
+}
+
+.flipped-image {
+  transform: scaleX(-1) scaleY(-1);
+  transition: transform 0.3s ease;
+}
+
+.row-1:hover .flipped-image {
+  transform: scaleX(1) scaleY(1);
+}
+
+.add-first {
+  font-size: 3em;
+  font-weight: 700;
+  cursor: pointer;
+  color: #007bffcc;
+  user-select: none;
+  border: 3px dashed #007bffcc;
+  border-radius: 14px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  margin: auto;
+}
+
+.add-buttons {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.add-btn {
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  background-color: #6c757d;
+  user-select: none;
+  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  z-index: 2;
+  position: absolute;
+}
+
+.add-btn:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.1);
+}
+
+.add-btn.left {
+  top: 50%;
+  left: -50px;
+  transform: translate(-140%, -50%);
+}
+
+.add-btn.right {
+  top: 50%;
+  right: -50px;
+  transform: translate(140%, -50%);
+}
+
+.add-btn.bottom {
+  bottom: -50px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+.add-btn.top {
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 1px;
+  right: 6px;
+  background: rgba(255, 0, 0, 0.8);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(200, 0, 0, 1);
+}

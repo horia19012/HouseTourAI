@@ -1,0 +1,24 @@
+<div class="progress-container">
+  <div *ngFor="let imgName of imageProgress | keyvalue" class="progress-group">
+    <div class="progress-label">{{ imgName.key }}</div>
+    <div class="progress-bar-wrapper">
+      <div
+        class="progress-bar"
+        [style.width.%]="imgName.value"
+        [ngClass]="{ 'done': imgName.value === 100 }"
+      ></div>
+    </div>
+    <div class="progress-percent">{{ imgName.value }}%</div>
+  </div>
+</div>
+
+<div *ngFor="let warning of warningMessages; let i = index" class="floating-message warning" [@slideIn]>
+  <button class="dismiss-button" (click)="dismissWarning(i)">×</button>
+  <strong>⚠️ Warning:</strong> {{ warning }}
+</div>
+
+<div *ngFor="let info of infoMessages; let j = index" class="floating-message info" [@slideIn]>
+  <button class="dismiss-button" (click)="dismissInfo(j)">×</button>
+  <strong>ℹ️ Info:</strong> {{ info }}
+</div>
+

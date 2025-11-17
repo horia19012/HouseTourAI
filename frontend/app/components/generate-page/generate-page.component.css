@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.page-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 800px;
+  font-family: 'sans-serif', sans-serif;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.page-description h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.page-description p {
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.page-description input[type="file"] {
+  padding: 12px 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.page-description input[type="file"]:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.video-generation-panel {
+  display: flex;
+  margin-top: 30px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 20px;
+}
+
+.video-generation-panel > * {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.generate-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.generate-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.generate-button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  background-color: black;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.generate-button:hover {
+  background-color: #222;
+  transform: translateY(-2px);
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.generate-button {
+  padding: 0.75rem 1.5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generate-button:hover {
+  background-color: #333;
+}
+
+.video-prefix-input {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px 24px;
+  width: fit-content;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.video-prefix-input label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.video-prefix-input input {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  width: 220px;
+}
+
+.video-prefix-input input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.video-prefix-input input:focus {
+  outline: none;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}

@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div class="page-description">
+  <h2>Select Images to generate video</h2>
+  <p>Upload photos of each room one at a time.
+    For each photo, you can add the next room’s image next to it, exactly how the rooms connect in the apartment.
+    This way, the layout on screen mirrors the real apartment’s flow for an intuitive virtual tour.</p>
+</div>
+<div *ngIf="!isLoading">
+  <app-generated-video [isVisible]="showGeneratedVideo"></app-generated-video>
+</div>
+<div class="loading-container" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<app-user-notifier (infoReceived)="isLoading = false"></app-user-notifier>
+
+<div class="input-group video-prefix-input" *ngIf="!isLoading">
+  <label for="videoPrefix">Video name:</label>
+  <input id="videoPrefix"
+         type="text"
+         [(ngModel)]="videoNamePrefix"
+         placeholder="e.g., my_tour"/>
+</div>
+
+<div *ngIf="!isLoading">
+
+  <div *ngIf="!isLoading">
+    <!-- Image matrix input -->
+    <div style="width: 80vw; height: 50vh; margin: auto;">
+      <app-image-matrix
+        style="width: 100%; height: 100%; display: block;"
+        (imagesChange)="handleImagesSelected($event)"
+        (relationsChanged)="handleRelationsChange($event)">
+      </app-image-matrix>
+    </div>
+  </div>
+</div>
+
+<div class="button-group" *ngIf="!isLoading">
+  <button class="generate-button" (click)="generateVideo()">GENERATE</button>
+</div>

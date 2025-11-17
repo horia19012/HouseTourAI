@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+<div class="fullscreen-container">
+  <div class="login-box">
+    <!-- Left branding section -->
+    <div class="left-section">
+      <img src="assets/logo.jpg" alt="HTourAI Logo" class="logo" />
+      <h1 class="app-name">HTourAI</h1>
+      <p class="description">
+        HTourAI turns static images of rooms or houses into dynamic, AI-generated video tours—seamlessly blending your visuals to create immersive and personalized experiences for showcasing real estate or interior design.
+      </p>
+    </div>
+
+    <div class="right-section">
+      <h2>{{ isLogin ? 'LOGIN' : 'REGISTER' }}</h2>
+
+      <!-- Login Form -->
+      <form *ngIf="isLogin" (ngSubmit)="onLoginSubmit()">
+        <input type="email" placeholder="Email" required [(ngModel)]="loginData.email" name="loginEmail" />
+        <input type="password" placeholder="Password" required [(ngModel)]="loginData.password" name="loginPassword" />
+        <button type="submit">Sign In</button>
+        <p class="signup-prompt">
+          Don't have an account? <a href="#" (click)="switchToRegister()">Sign up</a>
+        </p>
+      </form>
+
+      <form *ngIf="!isLogin" (ngSubmit)="onRegisterSubmit()">
+        <input type="text" placeholder="Name" required [(ngModel)]="registerData.name" name="registerName" />
+        <input type="email" placeholder="Email" required [(ngModel)]="registerData.email" name="registerEmail" />
+        <input type="password" placeholder="Password" required [(ngModel)]="registerData.password" name="registerPassword" />
+        <input type="password" placeholder="Confirm Password" required [(ngModel)]="registerData.confirmPassword" name="registerConfirmPassword" />
+        <button type="submit">Register</button>
+        <p class="signup-prompt">
+          Already have an account? <a href="#" (click)="switchToLogin()">Sign in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+

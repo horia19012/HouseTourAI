@@ -1,0 +1,72 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, #111, #222);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  display: flex;
+  margin-left: 5%;
+  align-items: center;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.logo img {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+}
+
+.logo span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: #fff;
+}
+
+.nav-actions {
+  display: flex;
+  margin-left: 50%;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.nav-actions button {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-actions button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}

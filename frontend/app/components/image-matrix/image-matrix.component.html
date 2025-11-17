@@ -1,0 +1,50 @@
+<div class="matrix-container">
+
+  <div *ngIf="!hasImages()" class="add-first" (click)="addImage()">
+    +
+  </div>
+
+  <div
+    *ngIf="hasImages()"
+    class="matrix"
+    [style.gridTemplateColumns]="'repeat(' + visibleCols.length + ', ' + cellWidth + ')'">
+
+    <div
+      *ngFor="let row of visibleRows"
+      class="row"
+      [ngClass]="{ 'row-1': row === 1 }"
+      style="display: contents;">
+
+      <ng-container *ngFor="let col of visibleCols">
+        <div class="cell" [style.width]="cellWidth" [style.height]="cellHeight">
+          <ng-container *ngIf="getCell(row, col) as cell">
+
+            <!-- Show image if present -->
+            <img
+              *ngIf="cell.imageUrl"
+              [src]="cell.imageUrl"
+              [class.flipped-image]="cell.row === 1"
+              alt="Matrix image" />
+
+            <button
+              *ngIf="lastAdded && lastAdded.row === row && lastAdded.col === col && cell.imageFile"
+              class="delete-btn"
+              (click)="deleteImage(row, col)"
+              aria-label="Delete image">
+              ×
+            </button>
+
+            <div class="add-buttons" *ngIf="cell.imageFile && cell === lastAdded">
+              <button *ngIf="canAdd('left')" (click)="addImage('left')" class="add-btn left">+</button>
+              <button *ngIf="canAdd('right')" (click)="addImage('right')" class="add-btn right">+</button>
+              <button *ngIf="canAdd('bottom')" (click)="addImage('bottom')" class="add-btn bottom">+</button>
+              <button *ngIf="canAdd('top')" (click)="addImage('top')" class="add-btn top">+</button>
+            </div>
+
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>

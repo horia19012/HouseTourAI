@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="video-list-container">
+  <h2>Video History</h2>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <ul *ngIf="videoUrls.length > 0; else noVideos">
+    <ng-container *ngFor="let video of videoUrls">
+      <li
+        class="video-list-item"
+        (click)="toggleVideoPlayer(video.url)">
+        <span class="video-filename">{{ video.url.split('/').pop() }}</span>
+        <button
+          class="delete-button"
+          (click)="deleteVideo(video.url, $event)">
+          Delete
+        </button>
+        <br />
+        <strong class="video-date">{{ video.formattedDate }}</strong>
+      </li>
+      <div *ngIf="selectedVideoUrl === video.url" style="margin: 12px 0 12px 32px;">
+        <video width="400" controls [src]="video.url"></video>
+      </div>
+    </ng-container>
+  </ul>
+
+  <ng-template #noVideos>
+  </ng-template>
+</div>
